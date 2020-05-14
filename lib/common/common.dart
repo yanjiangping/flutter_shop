@@ -4,4 +4,8 @@ class Constant {
   static const bool inProduction = const bool.fromEnvironment('dart.vm.product');
 
   static const String theme = 'AppTheme';
+
+  static const String keyGuide = 'keyGuide';
+
+  static const String phone = 'phone';
 }
