@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_shop/common/common.dart';
 import 'package:flutter_shop/moudles/login/login_router.dart';
-//import 'package:flutter_shop/moudles/store/store_router.dart';
+import 'package:flutter_shop/moudles/store/store_router.dart';
 import 'package:flutter_shop/res/resources.dart';
 import 'package:flutter_shop/routers/fluro_navigator.dart';
 import 'package:flutter_shop/util/toast.dart';
@@ -139,6 +139,6 @@ class _LoginPageState extends State<LoginPage> {
 
   void _login() {
     FlutterStars.SpUtil.putString(Constant.phone, _nameController.text);
-    //NavigatorUtils.push(context, StoreRouter.auditPage);
+    NavigatorUtils.push(context, StoreRouter.auditPage);
   }
 }
