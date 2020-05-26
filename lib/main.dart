@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_shop/provider/theme_provider.dart';
 import 'package:flutter_shop/routers/application.dart';
 import 'package:flutter_shop/routers/routers.dart';
@@ -45,6 +46,12 @@ class MyApp extends StatelessWidget {
               themeMode: provider.getThemeMode(),
               onGenerateRoute: Application.router.generator,
               home: SplashPage(),
+              localizationsDelegates: [
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate
+              ],
+              supportedLocales: [Locale('zh', 'CH'), Locale('en', 'US')],
             );
           }
           ),

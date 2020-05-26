@@ -19,8 +19,7 @@ class SplashPage extends StatefulWidget {
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage>{
-
+class _SplashPageState extends State<SplashPage> {
   int _status = 0;
   StreamSubscription _subscription;
   List<String> _guideList = ['app_start_1', 'app_start_2', 'app_start_3'];
@@ -42,11 +41,17 @@ class _SplashPageState extends State<SplashPage>{
     });
   }
 
-    void _initSplash() {
+  @override
+  void dispose() {
+    _subscription?.cancel();
+    super.dispose();
+  }
+
+  void _initSplash() {
     _subscription =
         Observable.just(1).delay(Duration(milliseconds: 1500)).listen((_) {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
-        //SpUtil.putBool(Constant.keyGuide, false);
+        SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
       } else {
         _goLogin();
@@ -54,7 +59,7 @@ class _SplashPageState extends State<SplashPage>{
     });
   }
 
-    void _initGuide() {
+  void _initGuide() {
     setState(() {
       _status = 1;
     });
